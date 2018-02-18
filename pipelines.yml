@@ -42,7 +42,7 @@ pipelines:
               imageTag: "1.2.0"
               buildArgs:
                 PACKER_VERSION: "1.2.0"
-              dockerfile: helm.dockerfile
+              dockerfile: packer.dockerfile
           - push:
               imageName: reynn/jenkins
               imageTag: "2.107"
