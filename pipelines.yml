@@ -1,0 +1,26 @@
+pipelines:
+  general:
+    debug: true
+  tools:
+    branches:
+      patterns:
+        master: .+
+    docker:
+      credentials:
+        description: quay.io robot
+      uri: quay.io
+    slack:
+      channel: 'git-notifications'
+  branches:
+    master:
+      steps:
+        - docker:
+          - build:
+              imageName: reynn/jenkins
+              imageTag: "2.107"
+              buildArgs:
+                JENKINS_VERSION: "2.107-alpine"
+              dockerfile: jenkins.dockerfile
+          - push:
+              imageName: reynn/jenkins
+              imageTag: "2.107"
