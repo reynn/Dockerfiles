@@ -21,6 +21,16 @@ pipelines:
               buildArgs:
                 JENKINS_VERSION: "2.107-alpine"
               dockerfile: jenkins.dockerfile
+          - build:
+              imageName: reynn/helm-client
+              imageTag: v2.7.2
+              buildArgs:
+                HELM_VERSION: "v2.7.2"
+                KUBECTL_VERSION: "v1.9.0"
+              dockerfile: helm.dockerfile
           - push:
               imageName: reynn/jenkins
               imageTag: "2.107"
+          - push:
+              imageName: reynn/helm-client
+              imageTag: v2.7.2
