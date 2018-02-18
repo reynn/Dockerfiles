@@ -31,6 +31,18 @@ pipelines:
                 HELM_VERSION: "v2.7.2"
                 KUBECTL_VERSION: "v1.9.0"
               dockerfile: helm.dockerfile
+          - build:
+              imageName: reynn/python3-base
+              dockerfile: python3-base.dockerfile
+          - build:
+              imageName: reynn/python2-base
+              dockerfile: python2-base.dockerfile
+          - build:
+              imageName: reynn/packer-alpine
+              imageTag: "1.2.0"
+              buildArgs:
+                PACKER_VERSION: "1.2.0"
+              dockerfile: helm.dockerfile
           - push:
               imageName: reynn/jenkins
               imageTag: "2.107"
@@ -39,5 +51,18 @@ pipelines:
           - push:
               imageName: reynn/helm-client
               imageTag: v2.7.2
+              additionalTags:
+                - latest
+          - push:
+              imageName: reynn/python2-base
+              additionalTags:
+                - latest
+          - push:
+              imageName: reynn/python3-base
+              additionalTags:
+                - latest
+          - push:
+              imageName: reynn/packer-alpine
+              imageTag: "1.2.0"
               additionalTags:
                 - latest
