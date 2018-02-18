@@ -9,6 +9,9 @@ pipelines:
       credentials:
         description: quay.io robot
       uri: quay.io
+    jenkins:
+      workflows:
+        branch: docker-changes
     slack:
       channel: 'git-notifications'
   branches:
@@ -31,6 +34,10 @@ pipelines:
           - push:
               imageName: reynn/jenkins
               imageTag: "2.107"
+              additionalTags:
+                - latest
           - push:
               imageName: reynn/helm-client
               imageTag: v2.7.2
+              additionalTags:
+                - latest
