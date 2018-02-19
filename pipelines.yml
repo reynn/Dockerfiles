@@ -38,6 +38,12 @@ pipelines:
               imageName: reynn/python2-base
               dockerfile: python2-base.dockerfile
           - build:
+              imageName: reynn/golang
+              imageTag: "1.10.0-alpine3.7"
+              buildArgs:
+                IMAGE_TAG: "1.10.0-alpine3.7"
+              dockerfile: golang.dockerfile
+          - build:
               imageName: reynn/packer-alpine
               imageTag: "1.2.0"
               buildArgs:
@@ -59,6 +65,11 @@ pipelines:
                 - latest
           - push:
               imageName: reynn/python3-base
+              additionalTags:
+                - latest
+          - push:
+              imageName: reynn/golang
+              imageTag: "1.10.0-alpine3.7"
               additionalTags:
                 - latest
           - push:
