@@ -20,7 +20,7 @@ pipelines:
         - docker:
           - build:
               imageName: reynn/jenkins
-              imageTag: "2.107"
+              imageTag: "2.108"
               buildArgs:
                 JENKINS_VERSION: "2.108-alpine"
               dockerfile: jenkins.dockerfile
