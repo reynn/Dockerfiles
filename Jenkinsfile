@@ -1,3 +1,3 @@
-@Library('plWorkflowLibs@v0.4.0')_
+@Library('plWorkflowLibs@v0.5.0')_
 
 plWorkflow {  }
