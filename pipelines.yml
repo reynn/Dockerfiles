@@ -20,9 +20,9 @@ pipelines:
         - docker:
           - build:
               imageName: reynn/jenkins
-              imageTag: "2018.3.1"
+              imageTag: "2018.3.2"
               buildArgs:
-                JENKINS_VERSION: "2.109-alpine"
+                JENKINS_VERSION: "2.110-alpine"
               dockerfile: jenkins.dockerfile
           - build:
               imageName: reynn/helm-client
@@ -51,7 +51,7 @@ pipelines:
               dockerfile: packer.dockerfile
           - push:
               imageName: reynn/jenkins
-              imageTag: "2018.3.1"
+              imageTag: "2018.3.2"
               additionalTags:
                 - latest
           - push:
