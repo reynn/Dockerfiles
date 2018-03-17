@@ -11,7 +11,7 @@ pipelines:
       uri: quay.io
     jenkins:
       workflows:
-        tag: "v0.4.1"
+        tag: "v0.5.0"
     slack:
       channel: 'git-notifications'
   branches:
@@ -20,9 +20,9 @@ pipelines:
         - docker:
           - build:
               imageName: reynn/jenkins
-              imageTag: "2018.3.2"
+              imageTag: "2018.3.3"
               buildArgs:
-                JENKINS_VERSION: "2.110-alpine"
+                JENKINS_VERSION: "2.111-alpine"
               dockerfile: jenkins.dockerfile
           - build:
               imageName: reynn/helm-client
@@ -57,7 +57,7 @@ pipelines:
               dockerfile: packer.dockerfile
           - push:
               imageName: reynn/jenkins
-              imageTag: "2018.3.2"
+              imageTag: "2018.3.3"
               additionalTags:
                 - latest
           - push:
