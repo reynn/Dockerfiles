@@ -20,7 +20,7 @@ pipelines:
         - docker:
           - build:
               imageName: reynn/jenkins
-              imageTag: "2018.4.1"
+              imageTag: "2018.4.2"
               buildArgs:
                 JENKINS_VERSION: "2.114-alpine"
               dockerfile: jenkins.dockerfile
@@ -57,7 +57,7 @@ pipelines:
               dockerfile: packer.dockerfile
           - push:
               imageName: reynn/jenkins
-              imageTag: "2018.4.1"
+              imageTag: "2018.4.2"
               additionalTags:
                 - latest
           - push:
