@@ -20,15 +20,15 @@ pipelines:
         - docker:
           - build:
               imageName: reynn/jenkins
-              imageTag: "2018.4.2"
+              imageTag: "2018.4.3"
               buildArgs:
-                JENKINS_VERSION: "2.114-alpine"
+                JENKINS_VERSION: "2.116-alpine"
               dockerfile: jenkins.dockerfile
           - build:
               imageName: reynn/helm-client
-              imageTag: v2.7.2
+              imageTag: v2.8.2
               buildArgs:
-                HELM_VERSION: "v2.7.2"
+                HELM_VERSION: "v2.8.2"
                 KUBECTL_VERSION: "v1.9.0"
               dockerfile: helm.dockerfile
           - build:
@@ -45,19 +45,19 @@ pipelines:
               dockerfile: python2-base.dockerfile
           - build:
               imageName: reynn/golang
-              imageTag: "1.10.0-alpine3.7"
+              imageTag: "1.10.1-alpine3.7"
               buildArgs:
-                IMAGE_TAG: "1.10.0-alpine3.7"
+                IMAGE_TAG: "1.10.1-alpine3.7"
               dockerfile: golang.dockerfile
           - build:
               imageName: reynn/packer-alpine
-              imageTag: "1.2.0"
+              imageTag: "1.2.2"
               buildArgs:
-                PACKER_VERSION: "1.2.0"
+                PACKER_VERSION: "1.2.2"
               dockerfile: packer.dockerfile
           - push:
               imageName: reynn/jenkins
-              imageTag: "2018.4.2"
+              imageTag: "2018.4.3"
               additionalTags:
                 - latest
           - push:
@@ -67,7 +67,7 @@ pipelines:
                 - latest
           - push:
               imageName: reynn/helm-client
-              imageTag: v2.7.2
+              imageTag: v2.8.2
               additionalTags:
                 - latest
           - push:
@@ -80,11 +80,11 @@ pipelines:
                 - latest
           - push:
               imageName: reynn/golang
-              imageTag: "1.10.0-alpine3.7"
+              imageTag: "1.10.1-alpine3.7"
               additionalTags:
                 - latest
           - push:
               imageName: reynn/packer-alpine
-              imageTag: "1.2.0"
+              imageTag: "1.2.2"
               additionalTags:
                 - latest
